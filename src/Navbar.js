@@ -1,17 +1,23 @@
 import { Link } from 'react-router-dom';
-import { Flex, HStack, ButtonGroup, Button } from '@chakra-ui/react';
+import { Container, Box, ButtonGroup, Button, useColorModeValue } from '@chakra-ui/react';
 
 function Navbar() {
   return (
-    <Flex>
-      <HStack>
-        <Link to="/">
-          <Button variant="link">Home</Button>
-        </Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-      </HStack>
-    </Flex>
+    <Box as="nav" boxShadow={useColorModeValue('sm', 'sm-dark')} position="relative">
+      <Container py="4" ml="0">
+        <ButtonGroup variant="link" spacing="10">
+          <Link to="/">
+            <Button>Home</Button>
+          </Link>
+          <Link to="/about">
+            <Button>About</Button>
+          </Link>
+          <Link to="/contact">
+            <Button>Contact</Button>
+          </Link>
+        </ButtonGroup>
+      </Container>
+    </Box>
   );
 }
 
