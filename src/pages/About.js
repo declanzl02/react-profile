@@ -1,5 +1,11 @@
+import CenteredHeader from "../components/CenteredHeader";
+
 function About() {
-  return <h1>About</h1>;
+  return (
+    <CenteredHeader 
+      text={"A Little About Me"}
+    />
+  );
 }
 
 export default About;

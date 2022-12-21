@@ -1,5 +1,11 @@
+import CenteredHeader from "../components/CenteredHeader";
+
 function Contact() {
-  return <h1>Contact</h1>;
+  return (
+    <CenteredHeader 
+    text={"Contact Me"}
+  />
+  );
 }
 
 export default Contact;
