@@ -10,6 +10,7 @@ function Home() {
 				<Image
 					borderRadius="full"
 					boxSize="150px"
+					boxShadow="dark-lg"
 					src={ProfilePic}
 					alt="Declan Lawson"
 				/>
