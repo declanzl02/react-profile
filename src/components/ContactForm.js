@@ -12,45 +12,58 @@ import { useState, setInput } from 'react';
 
 function ContactForm() {
 	const [state, setState] = useState({
-		fullName: null,
+		name: null,
 		email: null,
 		message: null,
 	});
 
-	const handleInputChange = (e) => setInput(e.target.value);
-
-	const handleSubmit = () => {
-		alert(state.fullName);
+	const handleInputChange = (e) => {
+		setState((prevState) => ({
+			...prevState,
+			[e.target.name]: e.target.value,
+		}));
+		console.log(state.name);
+		console.log(state.email);
+		console.log(state.message);
 	};
 
+	const handleSubmit = () => {};
+
 	return (
-		<Container boxShadow="2xl" borderRadius="10" py="3">
+		<Container boxShadow="xl" borderRadius="10" py="3">
 			<Heading align="center" size="md">
 				{' '}
 				Send an Email!
 			</Heading>
-			<FormControl>
-				<FormLabel isRequired>Name</FormLabel>
-				<Input
-					placeholder="John Smith"
-					value={state.fullName}
-					onChange={handleInputChange}
-				></Input>
-				<FormLabel isRequired>Email address</FormLabel>
-				<Input
-					type="email"
-					value={state.email}
-					onChange={handleInputChange}
-				></Input>
-				<FormLabel>Message</FormLabel>
-				<Textarea
-					value={state.message}
-					onChange={handleInputChange}
-				></Textarea>
-				<Flex py="2" justifyContent="left">
-					<Button colorScheme="purple">Send</Button>
-				</Flex>
-			</FormControl>
+			<form onSubmit={() => handleSubmit()}>
+				<FormControl>
+					<FormLabel name="name">Name</FormLabel>
+					<Input
+						placeholder="John Smith"
+						onChange={handleInputChange}
+						name="name"
+						required
+					></Input>
+					<FormLabel name="email">Email address</FormLabel>
+					<Input
+						type="email"
+						onChange={handleInputChange}
+						name="email"
+						required
+					></Input>
+					<FormLabel name="message">Message</FormLabel>
+					<Textarea
+						onChange={handleInputChange}
+						name="message"
+						required
+					></Textarea>
+					<Flex py="2" justifyContent="left">
+						<Button colorScheme="purple" type="submit">
+							Send
+						</Button>
+					</Flex>
+				</FormControl>
+			</form>
 		</Container>
 	);
 }
