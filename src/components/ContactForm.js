@@ -8,7 +8,7 @@ import {
 	Flex,
 	Heading,
 } from '@chakra-ui/react';
-import { useState, setInput } from 'react';
+import { useState } from 'react';
 
 function ContactForm() {
 	const [state, setState] = useState({
